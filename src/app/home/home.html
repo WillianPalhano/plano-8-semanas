@@ -1,9 +1,11 @@
 <section>
     <h2>Diário</h2>
     <div class="diary">
-        <mat-card class="example-card" appearance="outlined">
+        <mat-card class="card" appearance="outlined">
             <mat-card-header>
-                <mat-card-title>Dia 26/05</mat-card-title>
+                <mat-card-title>
+                    <h3>Dia 26/05</h3>
+                </mat-card-title>
                 <mat-card-subtitle>Sessão 1</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
@@ -12,14 +14,44 @@
                 </p>
             </mat-card-content>
         </mat-card>
-        <mat-card class="example-card" appearance="outlined">
+        <mat-card class="card" appearance="outlined">
             <mat-card-header>
-                <mat-card-title>Dia 27/05</mat-card-title>
+                <mat-card-title>
+                    <h3>Dia 27/05</h3>
+                </mat-card-title>
                 <mat-card-subtitle>Tarefas extracurriculares</mat-card-subtitle>
             </mat-card-header>
             <mat-card-content>
                 <p>
                     Montei o ambiente, ou seja, esse projeto. Aprendi que quem comanda a versão do Angular é o a versão do Angular/CLI, que precisa estar de acordo com a versão do Node também. Aprendi um pouco sobre o roteamento, criando um esquema de botões para navegar para os componentes de cada sessão. Exercitei também um pouco o esquema dos standalones components, onde encontrei dificuldade para entender que se eu tiver o mesmo botão do Angular Material em diferentes componentes, tenho que chamar a importação em cada componente. Para contornar esse problema, junto com o Gemini, decidi que ia criar um navbar component, para manter os botões lá, separados.
+                </p>
+            </mat-card-content>
+        </mat-card>
+        <mat-card class="card" appearance="outlined">
+            <mat-card-header>
+                <mat-card-title>
+                    <h3>Dia 28/05</h3>
+                    <!-- <mat-chip-set aria-label="Pedidos traits">
+                        <mat-chip>4 pedidos</mat-chip>
+                    </mat-chip-set> -->
+                </mat-card-title>
+                <mat-card-subtitle>Ainda na sessão 1</mat-card-subtitle>
+            </mat-card-header>
+            <mat-card-content>
+                <p>
+                    Estudei um pouco mais sobre a diferença entre signals e rxjs. Hoje aprendi que ainda se usa bastante rxjs mas na parte de requisições http, e que signals são mais utilizados quando se fala de interface e atualizações na UI.
+                </p>
+                <p>
+                    Basicamente, signals são pull-based, ou seja, eles só são lidos quando são chamados. Quando um signal muda de valor, o angular avisa os computeds que utilizam desse signal de que o valor mudou, mas o valor do computed só vai alterar mesmo quando o próprio computed for chamado. Diferente do rxjs que sempre fica ouvindo, e sempre que o valor muda ele emite "OI O VALOR MUDOU!", configurando uma arquitetura push-based.
+                </p>
+                <p>
+                    Comecei a utilizar IA no código mas desabilitei as sugestões por que ela acabva entregando a resposta do meu raciocínio lógico. Comecei a fazer o componente de signals e montei uma dashboard básica e estou usando o filtro com signals e computeds, fiz o filtro por nome e por status, falta o de data e as informações básicas da dashboard.
+                </p>
+                <p>
+                    Quero, no futuro, aprender um pouco de back-end para criar um crud desses registros em banco, acho que ficaria mais bonito e seria um conhecimento extra legal de se ter. Hoje também comecei a fazer um esquema de chips para esses registros, que vão ser palavras chave com base no que a IA entendeu, vai ser legal manter essa "opinião" dela sobre, mas isso ainda é um trabalho em andamento.
+                </p>
+                <p> 
+                    Ainda estou arranhando na sintaxe, principalmente por que tem muita coisa que é diferente no Angular Material, mas to usando como se fosse no dia a dia do trabalho, pesquisando e aplicando, acho que a gente nunca vai saber tudo. Pensei em no final da semana a IA rodar esse arquivo e analisar o que escrevi, então a partir de hoje vou escrever um pouco a mais, como se estivesse explicando pra alguém.
                 </p>
             </mat-card-content>
         </mat-card>

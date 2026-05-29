@@ -1,1 +1,96 @@
-<p>exemplo-signals works!</p>
+<section class="info">
+    <mat-card class="card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Receita Total</mat-card-title>
+        </mat-card-header>
+        <mat-card-footer class="card-footer">
+            <mat-chip-set aria-label="Receita Total traits">
+            <mat-chip>R$ 12.50</mat-chip>
+            </mat-chip-set>
+        </mat-card-footer>
+    </mat-card>
+    <mat-card class="card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Pedidos</mat-card-title>
+        </mat-card-header>
+        <mat-card-footer class="card-footer">
+            <mat-chip-set aria-label="Pedidos traits">
+                <mat-chip>4 pedidos</mat-chip>
+            </mat-chip-set>
+        </mat-card-footer>
+    </mat-card>
+    <mat-card class="card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Ticket médio</mat-card-title>
+        </mat-card-header>
+        <mat-card-footer class="card-footer">
+            <mat-chip-set aria-label="Ticket médio traits">
+                <mat-chip>R$ 2.50</mat-chip>
+            </mat-chip-set>
+        </mat-card-footer>
+    </mat-card>
+    <mat-card class="card" appearance="outlined">
+        <mat-card-header>
+            <mat-card-title>Pedidos pendentes</mat-card-title>
+        </mat-card-header>
+        <mat-card-footer class="card-footer">
+            <mat-chip-set aria-label="Pedidos pendentes traits">
+                <mat-chip>2 pedidos</mat-chip>
+            </mat-chip-set>
+        </mat-card-footer>
+    </mat-card>
+</section>
+<section class="filtro">
+    <mat-card class="card" appearance="outlined">
+        <mat-form-field>
+            <mat-label>Filtrar por cliente: </mat-label>
+            <input matInput placeholder="Nome do cliente..." [value]="pesquisaCliente()" (input)="pesquisaCliente.set($event.target.value)">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Status</mat-label>
+            <mat-select (selectionChange)="pesquisaStatus.set($event.value)">
+                <mat-option value="Todos">Todos</mat-option>
+                <mat-option value="Pendente">Pendente</mat-option>
+                <mat-option value="Pago">Pago</mat-option>
+                <mat-option value="Cancelado">Cancelado</mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Data</mat-label>
+            <mat-select>
+                <mat-option value="7">Últimos 7 dias</mat-option>
+                <mat-option value="30">Últimos 30 dias</mat-option>
+                <mat-option value="90">Últimos 90 dias</mat-option>
+            </mat-select>
+        </mat-form-field>
+    </mat-card>
+</section>
+<section class="table">
+    <mat-card class="card" appearance="outlined">
+        <table mat-table [dataSource]="filteredSales()" class="mat-elevation-z8">
+    
+            <ng-container matColumnDef="cliente">
+                <th mat-header-cell *matHeaderCellDef>Cliente</th>
+                <td mat-cell *matCellDef="let element"> {{element.cliente}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="valor">
+                <th mat-header-cell *matHeaderCellDef>Valor</th>
+                <td mat-cell *matCellDef="let element"> {{element.valor}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="status">
+                <th mat-header-cell *matHeaderCellDef>Status</th>
+                <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+            </ng-container>
+    
+            <ng-container matColumnDef="data">
+                <th mat-header-cell *matHeaderCellDef>Data</th>
+                <td mat-cell *matCellDef="let element"> {{element.data}} </td>
+            </ng-container>
+    
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card>
+</section>
